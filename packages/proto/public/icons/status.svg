@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+
+    <!-- Tasks -->
+    <symbol id="icon-tasks" viewBox="0 0 24 24">
+      <rect x="6" y="4" width="12" height="16" rx="3" stroke="currentColor" stroke-width="1.8" fill="none"/>
+      <path d="M9 9h6M9 13h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Category -->
+    <symbol id="icon-category" viewBox="0 0 24 24">
+      <path d="M3 7h6l2 2h10v8a2 2 0 0 1-2 2H3z"
+        stroke="currentColor"
+        stroke-width="1.8"
+        fill="none"
+        stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Status (pending) -->
+    <symbol id="icon-status" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/>
+      <path d="M12 7v5l3 2"
+        stroke="currentColor"
+        stroke-width="1.8"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Completed -->
+    <symbol id="icon-completed" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/>
+      <path d="M8 12l2.5 2.5L16 9"
+        stroke="currentColor"
+        stroke-width="1.8"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+    </symbol>
+
+  </defs>
+</svg>

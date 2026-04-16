@@ -1,14 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <title>Finish Lab 2</title>
+    <meta charset="utf-8" />
+    <title>Complete CSC437 Lab 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/page.css" />
   </head>
   <body>
     <header>
-      <h1>Task: Finish Lab 2</h1>
-      <link rel="stylesheet" href="/styles/tokens.css" />
-      <link rel="stylesheet" href="/styles/page.css" />
+      <h1>Task: Complete CSC437 Lab 2</h1>
       <nav>
         <a href="../index.html">Home</a>
       </nav>
@@ -16,11 +22,25 @@
 
     <main>
       <article>
-        <p><strong>Status:</strong> <a href="../statuses/pending.html">Pending</a></p>
-        <p><strong>Category:</strong> <a href="../categories/school.html">School</a></p>
-        <p><strong>Due Date:</strong> <time datetime="2026-01-30">Jan 30, 2026</time></p>
+        <p>
+          <strong>Status:</strong>
+          <svg class="icon">
+            <use href="/icons/status.svg#icon-pending" />
+          </svg>
+          <a href="../statuses/pending.html">Pending</a>
+        </p>
 
-        <section>
+        <p>
+          <strong>Category:</strong>
+          <a href="../categories/school.html">School</a>
+        </p>
+
+        <p>
+          <strong>Due Date:</strong>
+          <time datetime="2026-01-30">Jan 30, 2026</time>
+        </p>
+
+        <section class="note-box">
           <h2>Note</h2>
           <p>Finish building the HTML pages and check that all links work.</p>
         </section>
