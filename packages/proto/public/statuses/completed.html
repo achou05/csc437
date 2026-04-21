@@ -9,30 +9,66 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:ital,wght@0,400;0,500;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
   </head>
   <body>
-    <header>
-      <div class="page-title">
-        <svg class="icon page-title-icon">
-          <use href="/icons/status.svg#icon-completed" />
-        </svg>
+    <header class="site-header">
+      <div class="site-brand">
+        <p class="site-kicker">Task Prototype</p>
         <h1>Status: Completed</h1>
       </div>
 
-      <nav>
-        <a href="../index.html">Home</a>
-      </nav>
+      <div class="site-header-right">
+        <nav class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/categories/school.html">School</a></li>
+            <li><a href="/categories/personal.html">Personal</a></li>
+            <li><a href="/statuses/pending.html">Pending</a></li>
+            <li><a href="/statuses/completed.html" aria-current="page">Completed</a></li>
+          </ul>
+        </nav>
+        <p class="site-user">Aaron Chou</p>
+      </div>
     </header>
 
-    <main>
-      <section>
-        <h2>Tasks</h2>
-        <ul>
-          <li><a href="../tasks/task-2.html">Buy weekly groceries</a></li>
-        </ul>
-      </section>
+    <main class="page-shell">
+      <div class="page-main">
+        <section>
+          <h2>Tasks</h2>
+          <ul>
+            <li><a href="/tasks/task-2.html">Buy weekly groceries</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <aside class="page-sidebar">
+        <section class="sidebar-card">
+          <h2>Status Info</h2>
+          <div class="meta-list">
+            <div class="meta-row">
+              <span>Tasks</span>
+              <span>1</span>
+            </div>
+            <div class="meta-row">
+              <span>Category</span>
+              <span>Personal</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="sidebar-card">
+          <h2>Related Pages</h2>
+          <ul class="link-stack">
+            <li><a href="/tasks/task-2.html">Open task</a></li>
+            <li><a href="/categories/personal.html">Open personal category</a></li>
+            <li><a href="/index.html">Back to home</a></li>
+          </ul>
+        </section>
+      </aside>
     </main>
   </body>
 </html>
