@@ -5,6 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!toggleLabel || !toggleInput) return;
 
+  const savedMode = localStorage.getItem("darkMode");
+
+  if (savedMode === "true") {
+    body.classList.add("dark-mode");
+    toggleInput.checked = true;
+  }
+
   toggleLabel.onchange = (event) => {
     const checked = event.target.checked;
 
@@ -20,8 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
   body.addEventListener("darkmode:toggle", (event) => {
     if (event.detail.checked) {
       body.classList.add("dark-mode");
+      localStorage.setItem("darkMode", "true");
     } else {
       body.classList.remove("dark-mode");
+      localStorage.setItem("darkMode", "false");
     }
   });
 });

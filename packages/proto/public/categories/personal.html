@@ -31,8 +31,12 @@
             <li><a href="/statuses/completed.html">Completed</a></li>
           </ul>
         </nav>
-          <label class="dark-mode-toggle">
-          <input type="checkbox" autocomplete="off" /> Dark mode </label>
+
+        <label class="dark-mode-toggle">
+          <input type="checkbox" autocomplete="off" />
+          Dark mode
+        </label>
+
         <p class="site-user">Aaron Chou</p>
       </div>
     </header>
@@ -41,9 +45,15 @@
       <div class="page-main">
         <section>
           <h2>Tasks</h2>
-          <ul>
-            <li><a href="/tasks/task-2.html">Buy weekly groceries</a></li>
-          </ul>
+
+          <todo-task-preview
+            href="/tasks/task-2.html"
+            status="Completed"
+            category="Personal"
+            due-date="2026-01-25"
+          >
+            Buy weekly groceries
+          </todo-task-preview>
         </section>
       </div>
 
@@ -72,6 +82,15 @@
         </section>
       </aside>
     </main>
+
     <script type="module" src="/scripts/dark-mode.js"></script>
+
+    <script type="module">
+      import { TodoTaskPreviewElement } from "/js/todo-task-preview.js";
+
+      if (!customElements.get("todo-task-preview")) {
+        customElements.define("todo-task-preview", TodoTaskPreviewElement);
+      }
+    </script>
   </body>
 </html>
