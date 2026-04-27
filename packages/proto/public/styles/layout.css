@@ -129,7 +129,18 @@ main.page-shell {
 .detail-block p {
   margin-bottom: 0;
 }
+.dark-mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-inverted);
+  font-size: var(--font-size-small);
+  cursor: pointer;
+}
 
+.dark-mode-toggle input {
+  accent-color: var(--color-text-inverted);
+}
 @media (max-width: 860px) {
   .site-header {
     flex-direction: column;
