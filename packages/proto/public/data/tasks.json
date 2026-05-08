@@ -1,0 +1,18 @@
+{
+  "tasks": [
+    {
+      "name": "Complete CSC437 Lab 2",
+      "href": "/tasks/task-1.html",
+      "status": "Pending",
+      "category": "School",
+      "dueDate": "2026-01-30"
+    },
+    {
+      "name": "Buy weekly groceries",
+      "href": "/tasks/task-2.html",
+      "status": "Completed",
+      "category": "Personal",
+      "dueDate": "2026-01-25"
+    }
+  ]
+}

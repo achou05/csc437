@@ -54,23 +54,7 @@
             <h2>Tasks</h2>
             <hr />
 
-            <todo-task-preview
-              href="/tasks/task-1.html"
-              status="Pending"
-              category="School"
-              due-date="2026-01-30"
-            >
-              Complete CSC437 Lab 2
-            </todo-task-preview>
-
-            <todo-task-preview
-              href="/tasks/task-2.html"
-              status="Completed"
-              category="Personal"
-              due-date="2026-01-25"
-            >
-              Buy weekly groceries
-            </todo-task-preview>
+            <todo-task-list src="/data/tasks.json"></todo-task-list>
           </div>
         </section>
 
@@ -133,7 +117,15 @@
 
     <script type="module">
       import { TodoTaskPreviewElement } from "/js/todo-task-preview.js";
-      customElements.define("todo-task-preview", TodoTaskPreviewElement);
+      import { TodoTaskListElement } from "/js/todo-task-list.js";
+
+      if (!customElements.get("todo-task-preview")) {
+        customElements.define("todo-task-preview", TodoTaskPreviewElement);
+      }
+
+      if (!customElements.get("todo-task-list")) {
+        customElements.define("todo-task-list", TodoTaskListElement);
+      }
     </script>
   </body>
 </html>
