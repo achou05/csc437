@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import { connect } from "./services/mongo.ts";
+import auth, { authenticateUser } from "./routes/auth.ts";
 import tasks from "./routes/tasks.ts";
 
 const app = express();
@@ -11,7 +12,8 @@ connect("todo");
 app.use(express.static(staticDir));
 app.use(express.json());
 
-app.use("/api/tasks", tasks);
+app.use("/auth", auth);
+app.use("/api/tasks", authenticateUser, tasks);
 
 app.get("/hello", (req: Request, res: Response) => {
   res.send("Hello, World");

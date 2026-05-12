@@ -15,7 +15,26 @@ function get(id) {
     return TaskModel.find({ id })
         .then((list) => list[0])
         .catch(() => {
-        throw `${id} Not Found`;
+        throw new Error(`${id} Not Found`);
     });
 }
-export default { index, get };
+function create(task) {
+    const newTask = new TaskModel(task);
+    return newTask.save();
+}
+function update(id, task) {
+    return TaskModel.findOneAndUpdate({ id }, task, { new: true }).then((updated) => {
+        if (!updated) {
+            throw new Error(`${id} not updated`);
+        }
+        return updated;
+    });
+}
+function remove(id) {
+    return TaskModel.findOneAndDelete({ id }).then((deleted) => {
+        if (!deleted) {
+            throw new Error(`${id} not deleted`);
+        }
+    });
+}
+export default { index, get, create, update, remove };
