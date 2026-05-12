@@ -1,8 +1,8 @@
 import { Task } from "../models/index.ts";
-declare function get(id: string): Task | undefined;
-declare function index(): Task[];
+declare function index(): Promise<Task[]>;
+declare function get(id: string): Promise<Task | undefined>;
 declare const _default: {
-    get: typeof get;
     index: typeof index;
+    get: typeof get;
 };
 export default _default;

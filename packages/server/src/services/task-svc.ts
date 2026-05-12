@@ -1,31 +1,30 @@
+import { Schema, model } from "mongoose";
 import { Task } from "../models/index.ts";
 
-const tasks: { [key: string]: Task } = {
-  "task-1": {
-    id: "task-1",
-    name: "Complete CSC437 Lab 2",
-    href: "/tasks/task-1.html",
-    status: "Pending",
-    category: "School",
-    dueDate: "2026-01-30"
+const taskSchema = new Schema<Task>(
+  {
+    id: { type: String, required: true },
+    name: { type: String, required: true },
+    href: { type: String, required: true },
+    status: { type: String, required: true },
+    category: { type: String, required: true },
+    dueDate: { type: String, required: true }
   },
+  { collection: "tasks" }
+);
 
-  "task-2": {
-    id: "task-2",
-    name: "Buy weekly groceries",
-    href: "/tasks/task-2.html",
-    status: "Completed",
-    category: "Personal",
-    dueDate: "2026-01-25"
-  }
-};
+const TaskModel = model<Task>("Task", taskSchema);
 
-function get(id: string): Task | undefined {
-  return tasks[id];
+function index(): Promise<Task[]> {
+  return TaskModel.find();
 }
 
-function index(): Task[] {
-  return Object.values(tasks);
+function get(id: string): Promise<Task | undefined> {
+  return TaskModel.find({ id })
+    .then((list) => list[0])
+    .catch(() => {
+      throw `${id} Not Found`;
+    });
 }
 
-export default { get, index };
+export default { index, get };
