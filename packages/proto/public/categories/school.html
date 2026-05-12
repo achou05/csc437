@@ -37,7 +37,9 @@
           Dark mode
         </label>
 
-        <p class="site-user">Aaron Chou</p>
+        <a href="/login.html" id="signin-link">Sign In</a>
+        <button id="signout-button" type="button">Sign Out</button>
+        <p class="site-user" id="site-user">Aaron Chou</p>
       </div>
     </header>
 
@@ -92,5 +94,6 @@
         customElements.define("todo-task-preview", TodoTaskPreviewElement);
       }
     </script>
+    <script src="/scripts/auth-header.js"></script>
   </body>
 </html>

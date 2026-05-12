@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Category: Personal</title>
+    <title>Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,11 +14,12 @@
     <link rel="stylesheet" href="/styles/page.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
   </head>
+
   <body>
     <header class="site-header">
       <div class="site-brand">
         <p class="site-kicker">Task Prototype</p>
-        <h1>Category: Personal</h1>
+        <h1>User Login</h1>
       </div>
 
       <div class="site-header-right">
@@ -26,17 +27,11 @@
           <ul>
             <li><a href="/index.html">Home</a></li>
             <li><a href="/categories/school.html">School</a></li>
-            <li><a href="/categories/personal.html" aria-current="page">Personal</a></li>
+            <li><a href="/categories/personal.html">Personal</a></li>
             <li><a href="/statuses/pending.html">Pending</a></li>
             <li><a href="/statuses/completed.html">Completed</a></li>
           </ul>
         </nav>
-
-        <label class="dark-mode-toggle">
-          <input type="checkbox" autocomplete="off" />
-          Dark mode
-        </label>
-
         <a href="/login.html" id="signin-link">Sign In</a>
         <button id="signout-button" type="button">Sign Out</button>
         <p class="site-user" id="site-user">Aaron Chou</p>
@@ -46,54 +41,35 @@
     <main class="page-shell">
       <div class="page-main">
         <section>
-          <h2>Tasks</h2>
+          <h2>Login</h2>
 
-          <todo-task-preview
-            href="/tasks/task-2.html"
-            status="Completed"
-            category="Personal"
-            due-date="2026-01-25"
-          >
-            Buy weekly groceries
-          </todo-task-preview>
+          <form id="login-form">
+            <label>
+              <span>Username:</span>
+              <input name="username" autocomplete="off" />
+            </label>
+
+            <label>
+              <span>Password:</span>
+              <input type="password" name="password" />
+            </label>
+
+            <button type="submit">Login</button>
+
+            <p id="login-error"></p>
+          </form>
         </section>
       </div>
 
       <aside class="page-sidebar">
         <section class="sidebar-card">
-          <h2>Category Info</h2>
-          <div class="meta-list">
-            <div class="meta-row">
-              <span>Tasks</span>
-              <span>1</span>
-            </div>
-            <div class="meta-row">
-              <span>Main Status</span>
-              <span>Completed</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="sidebar-card">
-          <h2>Related Pages</h2>
-          <ul class="link-stack">
-            <li><a href="/tasks/task-2.html">Open task</a></li>
-            <li><a href="/statuses/completed.html">Open completed status</a></li>
-            <li><a href="/index.html">Back to home</a></li>
-          </ul>
+          <h2>Account</h2>
+          <p>Log in to access protected task data from the API.</p>
         </section>
       </aside>
     </main>
 
-    <script type="module" src="/scripts/dark-mode.js"></script>
-
-    <script type="module">
-      import { TodoTaskPreviewElement } from "/js/todo-task-preview.js";
-
-      if (!customElements.get("todo-task-preview")) {
-        customElements.define("todo-task-preview", TodoTaskPreviewElement);
-      }
-    </script>
+    <script type="module" src="/scripts/login.js"></script>
     <script src="/scripts/auth-header.js"></script>
   </body>
 </html>
