@@ -103,25 +103,36 @@ export class HomeViewElement extends HTMLElement {
           return;
         }
 
-        taskList!.innerHTML = `
-          <ul>
-            ${tasks
-              .map(
-                (task: any) => `
-                  <li>
-                    <strong>${task.name}</strong>
-                    <br />
-                    Status: ${task.status}
-                    <br />
-                    Category: ${task.category}
-                    <br />
-                    Due: ${task.dueDate}
-                  </li>
-                `
-              )
-              .join("")}
-          </ul>
-        `;
+taskList!.innerHTML = `
+  <div class="task-preview-list">
+    ${tasks
+      .map(
+        (task: any) => `
+          <article class="task-preview-card">
+            <h3>${task.name}</h3>
+
+            <dl class="task-preview-meta">
+              <div>
+                <dt>Status</dt>
+                <dd>${task.status}</dd>
+              </div>
+
+              <div>
+                <dt>Category</dt>
+                <dd>${task.category}</dd>
+              </div>
+
+              <div>
+                <dt>Due Date</dt>
+                <dd>${task.dueDate}</dd>
+              </div>
+            </dl>
+          </article>
+        `
+      )
+      .join("")}
+  </div>
+`;
       })
       .catch((error) => {
         taskList!.innerHTML = `<p>${error.message}</p>`;
