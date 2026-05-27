@@ -18,20 +18,31 @@
   <body>
     <header class="site-header">
       <div class="site-brand">
-        <p class="site-kicker">Task Prototype</p>
-        <h1>User Login</h1>
+        <p class="site-kicker">Task Manager</p>
+        <h1>My To-Do List</h1>
       </div>
 
       <div class="site-header-right">
-<nav class="site-nav" aria-label="Primary">
-  <ul>
-    <li><a href="/app">Home</a></li>
-    <li><a href="/app/about">About</a></li>
-  </ul>
-</nav>
-        <a href="/login.html" id="signin-link">Sign In</a>
-        <button id="signout-button" type="button">Sign Out</button>
-        <p class="site-user" id="site-user">Aaron Chou</p>
+        <nav class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="/app">Home</a></li>
+            <li><a href="/app/about">About</a></li>
+          </ul>
+        </nav>
+
+        <details class="settings-menu">
+          <summary>Settings</summary>
+          <div class="settings-panel">
+            <p class="site-user" id="site-user">Not signed in</p>
+            <label class="dark-mode-toggle">
+              <input type="checkbox" autocomplete="off" />
+              <span class="theme-switch-track" aria-hidden="true"></span>
+              <span class="theme-switch-text">Dark mode</span>
+            </label>
+            <a class="settings-link" href="/login.html" id="signin-link">Sign In</a>
+            <button id="signout-button" type="button">Sign Out</button>
+          </div>
+        </details>
       </div>
     </header>
 
@@ -67,6 +78,7 @@
     </main>
 
     <script type="module" src="/scripts/login.js"></script>
+    <script type="module" src="/scripts/dark-mode.js"></script>
     <script src="/scripts/auth-header.js"></script>
   </body>
 </html>

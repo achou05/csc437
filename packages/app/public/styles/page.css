@@ -21,8 +21,7 @@ main {
   padding: 2.5rem 1.5rem 4rem;
 }
 
-section,
-article {
+section {
   background-color: var(--color-background-card);
   border: 1px solid var(--color-border);
   border-radius: 16px;
@@ -77,6 +76,64 @@ header a {
   color: var(--color-text-inverted);
 }
 
+main button {
+  min-height: 2.2rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  padding: 0.4rem 0.75rem;
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+  font: inherit;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+
+main button:hover {
+  background-color: var(--color-accent-hover);
+}
+
+main button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 2.35rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.45rem 0.65rem;
+  background-color: var(--color-background-card);
+  color: var(--color-text);
+  font: inherit;
+}
+
+label {
+  display: grid;
+  gap: 0.3rem;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+}
+
+#login-form {
+  display: grid;
+  gap: 0.85rem;
+}
+
+#login-form button {
+  justify-self: start;
+  margin-top: 0.35rem;
+}
+
+#login-error {
+  min-height: 1.2rem;
+  margin: 0;
+  color: #b33a3a;
+  font-weight: var(--font-weight-medium);
+}
+
 ul {
   margin: 0;
   padding-left: 1.25rem;
@@ -88,6 +145,38 @@ li {
 
 strong {
   font-weight: var(--font-weight-medium);
+}
+
+.lab-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.lab-list li {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background-color: var(--color-background-subtle);
+}
+
+.lab-list strong {
+  line-height: 1.25;
+}
+
+.lab-list span {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
+}
+
+.lab-list .current-lab {
+  border-color: var(--color-accent);
+  background-color: var(--color-background-card);
 }
 
 time {
@@ -158,6 +247,64 @@ svg.icon {
   opacity: 0.6;
 }
 
+.todo-shell .section-card {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  padding: 2rem;
+}
+
+.todo-shell .section-card-icon {
+  display: none;
+}
+
+.todo-shell .section-card-content {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.todo-layout {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.75fr) minmax(0, 1.65fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.todo-layout-list-only {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.task-list-panel {
+  min-width: 0;
+}
+
+.task-filter-nav {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 1rem;
+  padding: 0.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background-color: var(--color-background-page);
+}
+
+.task-filter-nav a {
+  min-height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.25rem 0.8rem;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.task-filter-nav a:hover,
+.task-filter-nav a[aria-current="page"] {
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+}
+
 /* task/status inline icon spacing */
 .status-with-icon {
   display: inline-flex;
@@ -165,8 +312,7 @@ svg.icon {
   gap: 0.35rem;
 }
 
-section + section,
-article + article {
+section + section {
   margin-top: 0;
 }
 
@@ -183,8 +329,7 @@ article + article {
     padding: 1.5rem 1rem 3rem;
   }
 
-  section,
-  article {
+  section {
     padding: 1.1rem 1rem;
   }
 
@@ -229,7 +374,8 @@ header h1 {
 
 .task-preview-list {
   display: grid;
-  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr));
+  gap: 1rem;
 }
 
 .task-preview-card {
@@ -263,4 +409,133 @@ header h1 {
 
 .task-preview-meta dd {
   margin: 0;
+}
+
+.status-badge {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.65rem;
+  border-radius: 999px;
+  padding: 0.15rem 0.65rem;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+}
+
+.status-badge-pending {
+  border: 1px solid #b48a20;
+  background-color: #fff6d8;
+  color: #634800;
+}
+
+.status-badge-completed {
+  border: 1px solid #277a4f;
+  background-color: #dff5e8;
+  color: #185536;
+}
+
+body.dark-mode .status-badge-pending {
+  border-color: #d8b85a;
+  background-color: #3a3013;
+  color: #ffe39a;
+}
+
+body.dark-mode .status-badge-completed {
+  border-color: #62bd8d;
+  background-color: #143322;
+  color: #a9e8c3;
+}
+
+.task-form {
+  display: grid;
+  grid-template-columns:
+    minmax(16rem, 2fr)
+    minmax(9rem, 1fr)
+    minmax(9rem, 1fr)
+    minmax(10rem, 1fr)
+    auto;
+  align-items: end;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+task-form .task-form {
+  grid-template-columns: 1fr;
+  margin: 0;
+  padding: 0 1.25rem 0 0;
+  border-right: 1px solid var(--color-border);
+  border-bottom: 0;
+}
+
+.task-form-heading {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.task-form-actions,
+.task-preview-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.task-form-actions {
+  align-items: end;
+}
+
+.task-preview-actions {
+  margin-top: 1rem;
+}
+
+.task-preview-actions button,
+.task-form-actions button {
+  min-height: 2rem;
+}
+
+.secondary-button {
+  border-color: var(--color-border);
+  background-color: var(--color-background-card);
+  color: var(--color-text);
+}
+
+.secondary-button:hover {
+  background-color: var(--color-background-subtle);
+  color: var(--color-text);
+}
+
+.danger-button {
+  border-color: #b33a3a;
+  background-color: #b33a3a;
+  color: #ffffff;
+}
+
+.danger-button:hover {
+  background-color: #8f2727;
+}
+
+.task-form-error {
+  color: #b33a3a;
+  font-weight: var(--font-weight-medium);
+}
+
+@media (max-width: 700px) {
+  .todo-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .task-form {
+    grid-template-columns: 1fr;
+  }
+
+  task-form .task-form {
+    padding: 0 0 1rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .todo-shell .section-card {
+    padding: 1.1rem 1rem;
+  }
 }

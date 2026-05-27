@@ -4,19 +4,21 @@ const siteUser = document.querySelector("#site-user");
 
 const token = localStorage.getItem("token");
 const username = localStorage.getItem("username");
+const authToken = localStorage.getItem("un-auth:token");
 
 if (signinLink && signoutButton && siteUser) {
-  if (token) {
+  if (token || authToken) {
     signinLink.style.display = "none";
-    signoutButton.style.display = "inline-block";
+    signoutButton.style.display = "block";
     siteUser.textContent = username ? `Signed in as ${username}` : "Signed in";
   } else {
-    signinLink.style.display = "inline-block";
+    signinLink.style.display = "block";
     signoutButton.style.display = "none";
     siteUser.textContent = "Not signed in";
   }
 
   signoutButton.addEventListener("click", () => {
+    localStorage.removeItem("un-auth:token");
     localStorage.removeItem("token");
     localStorage.removeItem("username");
     window.location.href = "/login.html";

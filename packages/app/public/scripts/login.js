@@ -26,6 +26,7 @@ form.addEventListener("submit", (event) => {
       return response.json();
     })
     .then((data) => {
+      localStorage.setItem("un-auth:token", data.token);
       localStorage.setItem("token", data.token);
       localStorage.setItem("username", loginData.username);
       window.location.href = "/";

@@ -46,10 +46,99 @@
 .site-user {
   color: var(--color-text-inverted);
   font-size: var(--font-size-small);
-  padding: 0.45rem 0.8rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.settings-menu {
+  position: relative;
+}
+
+.settings-menu summary {
+  min-height: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background-color: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-inverted);
+  cursor: pointer;
+  list-style: none;
+}
+
+.settings-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.settings-menu summary::after {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg) translateY(-0.12rem);
+}
+
+.settings-menu[open] summary::after {
+  transform: rotate(225deg) translateY(-0.12rem);
+}
+
+.settings-panel {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  right: 0;
+  z-index: 10;
+  min-width: 220px;
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background-color: var(--color-background-card);
+  color: var(--color-text);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.settings-panel .site-user {
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+}
+
+.settings-panel button {
+  min-height: 2.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  padding: 0.4rem 0.75rem;
+  background-color: var(--color-background-page);
+  color: var(--color-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.settings-panel button:hover {
+  border-color: var(--color-accent);
+}
+
+.settings-link {
+  min-height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  padding: 0.4rem 0.75rem;
+  background-color: var(--color-background-page);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.settings-link:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text);
 }
 
 main.page-shell {
@@ -60,6 +149,11 @@ main.page-shell {
   grid-template-columns: minmax(0, 2fr) minmax(250px, 0.9fr);
   gap: 1.5rem;
   align-items: start;
+}
+
+main.todo-shell {
+  max-width: 1280px;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .page-main,
@@ -132,14 +226,69 @@ main.page-shell {
 .dark-mode-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  color: var(--color-text-inverted);
+  gap: 0.65rem;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  color: inherit;
   font-size: var(--font-size-small);
   cursor: pointer;
 }
 
 .dark-mode-toggle input {
-  accent-color: var(--color-text-inverted);
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-height: 1px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+}
+
+.theme-switch-track {
+  width: 2.25rem;
+  height: 1.25rem;
+  order: 2;
+  flex: 0 0 auto;
+  position: relative;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background-color: var(--color-background-page);
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.theme-switch-track::after {
+  content: "";
+  position: absolute;
+  top: 0.16rem;
+  left: 0.16rem;
+  width: 0.82rem;
+  height: 0.82rem;
+  border-radius: 999px;
+  background-color: var(--color-text);
+  transition: transform 160ms ease;
+}
+
+.dark-mode-toggle input:checked + .theme-switch-track {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent);
+}
+
+.dark-mode-toggle input:checked + .theme-switch-track::after {
+  background-color: var(--color-background-card);
+  transform: translateX(1rem);
+}
+
+.dark-mode-toggle input:focus-visible + .theme-switch-track {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.theme-switch-text {
+  order: 1;
 }
 @media (max-width: 860px) {
   .site-header {
