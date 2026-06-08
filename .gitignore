@@ -3,3 +3,4 @@ node_modules/
 .env
 packages/server/.env
 packages/app/dist/
+*.log
